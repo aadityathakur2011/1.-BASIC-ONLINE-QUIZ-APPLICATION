@@ -1,0 +1,225 @@
+1. BASIC — ONLINE QUIZ APPLICATION
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Quiz Application</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .quiz-container {
+            width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question h3 {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+    <h1>Online Quiz</h1>
+
+    <div class="question">
+        <h3>1. Which language is used to create the structure of a webpage?</h3>
+
+        <label>
+            <input type="radio" name="q1" value="HTML">
+            HTML
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="CSS">
+            CSS
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="JavaScript">
+            JavaScript
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>2. Which language is used to style a webpage?</h3>
+
+        <label>
+            <input type="radio" name="q2" value="HTML">
+            HTML
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="CSS">
+            CSS
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="JavaScript">
+            JavaScript
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>3. Which language is used to add interactivity?</h3>
+
+        <label>
+            <input type="radio" name="q3" value="HTML">
+            HTML
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="CSS">
+            CSS
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="JavaScript">
+            JavaScript
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>4. Which tag is used to create a hyperlink?</h3>
+
+        <label>
+            <input type="radio" name="q4" value="a">
+            &lt;a&gt;
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="p">
+            &lt;p&gt;
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="h1">
+            &lt;h1&gt;
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>5. Which property changes the background color in CSS?</h3>
+
+        <label>
+            <input type="radio" name="q5" value="color">
+            color
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="background-color">
+            background-color
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="font-size">
+            font-size
+        </label>
+    </div>
+
+
+    <button onclick="checkQuiz()">Submit Quiz</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+function checkQuiz()
+{
+    let score = 0;
+
+    let answer1 = document.querySelector('input[name="q1"]:checked');
+    let answer2 = document.querySelector('input[name="q2"]:checked');
+    let answer3 = document.querySelector('input[name="q3"]:checked');
+    let answer4 = document.querySelector('input[name="q4"]:checked');
+    let answer5 = document.querySelector('input[name="q5"]:checked');
+
+    if (answer1 && answer1.value === "HTML")
+        score++;
+
+    if (answer2 && answer2.value === "CSS")
+        score++;
+
+    if (answer3 && answer3.value === "JavaScript")
+        score++;
+
+    if (answer4 && answer4.value === "a")
+        score++;
+
+    if (answer5 && answer5.value === "background-color")
+        score++;
+
+
+    let percentage = (score / 5) * 100;
+
+    let resultText;
+
+    if (percentage >= 40)
+        resultText = "PASS";
+    else
+        resultText = "FAIL";
+
+
+    document.getElementById("result").innerHTML =
+        "Score: " + score + " / 5<br>" +
+        "Percentage: " + percentage + "%<br>" +
+        "Result: " + resultText;
+}
+
+</script>
+
+</body>
+</html>
